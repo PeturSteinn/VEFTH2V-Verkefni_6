@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <title>{{station['name']}} - Kort</title>
   <link rel="stylesheet" href="/static/css/master.css">
@@ -74,7 +75,7 @@
         </a>
       </div>
       <div class="signature">
-        <p>© Pétur Steinn Guðmundsson</p>
+        <p>©&nbsp;Pétur&nbsp;Steinn&nbsp;Guðmundsson</p>
       </div>
     </section>
   </footer>

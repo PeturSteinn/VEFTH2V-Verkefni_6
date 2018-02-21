@@ -97,6 +97,7 @@ def stod(n):
 
 @route('/stod/<n>/<j>')
 def map(n, j):
+    global station
     doesCompanyExist = False
     doesStationExist = False
 
@@ -105,7 +106,7 @@ def map(n, j):
             doesCompanyExist = True
     if doesCompanyExist:
         for k in data['results']:
-            if k['key'] == j:
+            if k['key'].lower() == j.lower():
                 station = k
                 doesStationExist = True
                 break
@@ -125,5 +126,5 @@ def error404(error):
     return template('views/error404')
 
 
-run(host="0.0.0.0", port=os.environ.get('PORT'))
-#run(debug=True, reloader=True)
+#run(host="0.0.0.0", port=os.environ.get('PORT'))
+run(debug=True, reloader=True)
