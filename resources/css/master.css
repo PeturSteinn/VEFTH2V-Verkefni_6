@@ -191,7 +191,7 @@ input:checked~.menu-slide-in {
 
 .wrapper {
   max-width: 60em;
-  min-height: calc(100vh - 3em - 2px);
+  min-height: calc(100vh - 7em - 2px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -201,7 +201,7 @@ input:checked~.menu-slide-in {
 
 .wrapper-result {
   max-width: 60em;
-  min-height: calc(100vh - 3em - 2px);
+  min-height: calc(100vh - 7em - 2px);
   margin: 0 auto;
   color: #363635;
   width: 100%;
@@ -377,8 +377,33 @@ input:checked~.menu-slide-in {
 .footer-content {
   background-color: #ED1C24;
   color: #f4f4f4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1.5em;
+}
+
+.footer-content .github {
+  text-align: center;
+}
+
+.footer-content .github div img {
+  width: 25px;
+  height: auto;
+}
+
+.footer-content .github a {
+  text-decoration: none;
+  color: #f4f4f4;
+}
+
+.footer-content .signature {
   text-align: right;
-  padding: 1em;
+  padding-top: 3em;
+}
+
+.footer-content .signature p {
+  padding: 0;
+  margin: 0;
 }
 
 /*

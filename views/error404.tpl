@@ -46,7 +46,16 @@
   </section>
   <footer>
     <section class="footer-content">
-      © Pétur Steinn Guðmundsson
+      <div class=""></div>
+      <div class="github">
+        <a href="https://github.com/PeturSteinn/VEFTH2V-Verkefni_6">
+          <div class=""><img src="/static/img/github.svg" alt=""></div>
+          <div class="">GitHub</div>
+        </a>
+      </div>
+      <div class="signature">
+        <p>© Pétur Steinn Guðmundsson</p>
+      </div>
     </section>
   </footer>
 </body>
