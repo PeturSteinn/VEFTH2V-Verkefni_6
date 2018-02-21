@@ -38,7 +38,7 @@
   </div>
   <section class="wrapper-result">
     <div class="intro">
-      Bensínstöðvar
+      <p>Bensínstöðvar</p>
     </div>
     <section class="stodvar">
       % for stod in all_stations:
@@ -57,14 +57,19 @@
     <section class="footer-content">
       <div class=""></div>
       <div class="github">
-        <a href="https://github.com/PeturSteinn/VEFTH2V-Verkefni_6">
-          <div class=""><img src="/static/img/github.svg" alt=""></div>
-          <div class="">GitHub</div>
-        </a>
-      </div>
-      <div class="signature">
-        <p>© Pétur Steinn Guðmundsson</p>
-      </div>
+        <div class="">
+          <a href="https://github.com/PeturSteinn/VEFTH2V-Verkefni_6">
+            <img src="/static/img/github.svg" alt=""></div>
+          </a>
+          <div class="">
+            <a href="https://github.com/PeturSteinn/VEFTH2V-Verkefni_6">
+            GitHub
+          </a>
+          </div>
+        </div>
+        <div class="signature">
+          <p>© Pétur Steinn Guðmundsson</p>
+        </div>
     </section>
   </footer>
 </body>
