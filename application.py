@@ -1,4 +1,5 @@
-import requests, os
+import requests
+import os
 from bottle import route, run, static_file, error, request, template, TEMPLATES
 
 
@@ -111,7 +112,6 @@ def map(n, j):
                 doesStationExist = True
                 break
 
-
     if doesCompanyExist and doesStationExist:
         return template('views/map', station=station)
 
@@ -126,5 +126,5 @@ def error404(error):
     return template('views/error404')
 
 
-#run(host="0.0.0.0", port=os.environ.get('PORT'))
-run(debug=True, reloader=True)
+run(host="0.0.0.0", port=os.environ.get('PORT'))
+#run(debug=True, reloader=True)
