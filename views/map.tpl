@@ -44,7 +44,7 @@
     <div class="intro-with-logo">
       <p>{{station['company']}}</p>
     </div>
-    <h3>{{station['name']}}</h3>
+    <h3 class="map-title">{{station['name']}}</h3>
     <div id="map"></div>
     <script>
       function initMap() {

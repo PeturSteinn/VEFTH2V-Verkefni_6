@@ -191,7 +191,6 @@ input:checked~.menu-slide-in {
 /* Wrapper */
 
 .wrapper {
-  max-width: 60em;
   min-height: calc(100vh - 7em - 2px);
   margin: 0 auto;
   display: grid;
@@ -201,7 +200,6 @@ input:checked~.menu-slide-in {
 }
 
 .wrapper-result {
-  max-width: 60em;
   min-height: calc(100vh - 7em - 2px);
   margin: 0 auto;
   color: #363635;
@@ -367,6 +365,10 @@ input:checked~.menu-slide-in {
   padding-right: .5em;
 }
 
+.map-title {
+  padding-left: .5em;
+}
+
 .logo-container {
   text-align: center;
   margin-top: 7em;
@@ -440,6 +442,15 @@ input:checked~.menu-slide-in {
   .footer-content {
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1.5em;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .wrapper {
+    max-width: 60em;
+  }
+  .wrapper-result {
+    max-width: 60em;
   }
 }
 
