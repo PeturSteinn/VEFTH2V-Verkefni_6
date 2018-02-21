@@ -1,6 +1,4 @@
-import os
-import json
-import requests
+import requests, os
 from bottle import route, run, static_file, error, request, template, TEMPLATES
 
 
@@ -59,7 +57,7 @@ tmp = tmp.split("T")
 lastPriceCheck = tmp
 
 
-#user_request = 'olís'.title()
+# user_request = 'olís'.title()
 # for i in data['results']:
 #    if i['company'] == user_request:
 #        print(i)
@@ -67,8 +65,8 @@ lastPriceCheck = tmp
 
 @route('/')
 def index():
-    return template('views/index', all_stations = all_stations, odyrt_bensin = odyrt_bensin,
-                    odyrt_diesel = odyrt_diesel, lastPriceCheck = lastPriceCheck)
+    return template('views/index', all_stations=all_stations, odyrt_bensin=odyrt_bensin,
+                    odyrt_diesel=odyrt_diesel, lastPriceCheck=lastPriceCheck)
 
 
 @route('/about')
@@ -78,10 +76,12 @@ def about():
 
 @route('/stodvar')
 def stodvar():
-    return template('views/stodvar', all_stations = all_stations)
+    return template('views/stodvar', all_stations=all_stations)
+
 
 @route('/stod/<n>')
 def stod(n):
+    print("KOMINN")
     doesExist = False
     stod = list()
     for i in data['results']:
@@ -90,9 +90,35 @@ def stod(n):
             stod.append(i)
 
     if doesExist:
-        return template('views/stod', stod = stod, lastPriceCheck = lastPriceCheck)
+        return template('views/stod', stod=stod, lastPriceCheck=lastPriceCheck)
     else:
         return template('views/error404')
+
+
+@route('/stod/<n>/<j>')
+def map(n, j):
+    doesCompanyExist = False
+    doesStationExist = False
+
+    for i in data['results']:
+        if i['company'].lower() == n.lower():
+            doesCompanyExist = True
+    if doesCompanyExist:
+        for k in data['results']:
+            if k['key'] == j:
+                station = k
+                doesStationExist = True
+                break
+
+
+    if doesCompanyExist and doesStationExist:
+        return template('views/map', station=station)
+
+    else:
+        return template('views/error404')
+
+    # return template('views/map', data = data['results'])
+
 
 @error(404)
 def error404(error):

@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Um #síða</title>
-  <link rel="stylesheet" href="../static/css/master.css">
-  <link rel="stylesheet" href="../static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/master.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>

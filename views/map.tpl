@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Stöð - {{stod[0]['company']}}</title>
+  <title>{{station['name']}} - Kort</title>
   <link rel="stylesheet" href="/static/css/master.css">
   <link rel="stylesheet" href="/static/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -38,29 +38,31 @@
   </div>
   <section class="wrapper-result">
     <section class="logo-container">
-      <img src="/static/img/{{stod[0]['key'][:2]}}.svg" class="station-logo">
+      <img src="/static/img/{{station['key'][:2]}}.svg" class="station-logo">
     </section>
     <div class="intro-with-logo">
-      <p>{{stod[0]['company']}}</p>
+      <p>{{station['company']}}</p>
     </div>
-    <h3>Fjöldi stöðva: {{len(stod)}}</h3>
-    <section class="stodvar-specific">
-      % for i in stod:
-      <div class="stod-uppl-block">
-        <div class="header">
-          {{i['name']}}
-        </div>
-        <div class="content">
-          <p><b>Bensín:</b>&nbsp;{{i['bensin95']}}</p>
-          <p><b>Diesel:</b>&nbsp;&nbsp;{{i['diesel']}}</p>
-          <p><b>Afsláttarverð á bensíni:</b>&nbsp;{{i['bensin95_discount']}}</p>
-          <p><b>Afsláttarverð á diesel:</b>&nbsp;&nbsp;{{i['diesel_discount']}}</p>
-          <a href="/stod/{{i['company']}}/{{i['key']}}">Skoða á korti</a>
-        </div>
-      </div>
-      % end
-    </section>
-    <p class="last-update">Síðast uppfært: {{lastPriceCheck[0]}} kl: {{lastPriceCheck[1]}}</p>
+    <h3>{{station['name']}}</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {
+          lat: {{station['geo']['lat']}},
+          lng: {{station['geo']['lon']}}
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoAnJ1G2IPQoTQMi-5tIsF4OhgkoMPNPs&callback=initMap">
+    </script>
   </section>
   <footer>
     <section class="footer-content">
