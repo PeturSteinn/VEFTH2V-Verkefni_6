@@ -38,7 +38,6 @@ body {
 
 input:checked~.menu-slide-in {
   left: 0;
-  transition: all 0.3s ease-in-out;
 }
 
 .selection label {
@@ -236,6 +235,10 @@ input:checked~.menu-slide-in {
   text-transform: uppercase;
 }
 
+.brief-nav h3 {
+  text-decoration: underline;
+}
+
 .brief-nav ul {
   list-style: none;
   display: grid;
@@ -248,7 +251,12 @@ input:checked~.menu-slide-in {
   font-size: .9em;
   margin: .6em .3em .7em .3em;
   padding-bottom: .5em;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #565554;
+  transition: all .3s ease-in-out;
+}
+
+.brief-nav li:hover {
+  border-bottom: 1px solid #ED1C24;
 }
 
 .brief-nav a {

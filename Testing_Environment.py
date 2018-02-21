@@ -16,12 +16,6 @@ for i in data['results']:
     if i['diesel_discount'] == "None":
         i['diesel_discount'] = "Ekkert"
 
-n = 'ao_000'
-
-for i in data['results']:
-    if i['key'] == n:
-        print('Latitute:', i['geo']['lat'])
-        print('Longitute:', i['geo']['lon'])
 
 
 
@@ -30,7 +24,8 @@ for i in data['results']:
 #    print(i['geo']['lat'])
 
 
-print(data['results'])
+for i in data['results']:
+    print(i)
 
 #print(data['results']['geo'])
 
