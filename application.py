@@ -140,5 +140,5 @@ def error404(error):
     return template('views/error404')
 
 
-#run(host="0.0.0.0", port=os.environ.get('PORT'))
-run(debug=True, reloader=True)
+run(host="0.0.0.0", port=os.environ.get('PORT'))
+#run(debug=True, reloader=True)
