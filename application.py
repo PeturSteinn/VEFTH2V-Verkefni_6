@@ -1,6 +1,6 @@
 import requests
 import os
-from bottle import route, run, static_file, error, request, template, TEMPLATES
+from bottle import route, post, run, static_file, error, request, template
 
 
 @route('/static/<filename:path>')
@@ -30,6 +30,7 @@ for i in data['results']:
         i['diesel_discount'] += " kr,-"
     i['bensin95'] += " kr,-"
     i['diesel'] += " kr,-"
+
 for i in data['results']:
     add_stod = True
     for j in all_stations:
@@ -69,6 +70,20 @@ def index():
     return template('views/index', all_stations=all_stations, odyrt_bensin=odyrt_bensin,
                     odyrt_diesel=odyrt_diesel, lastPriceCheck=lastPriceCheck)
 
+'''LEITARVÉL WIP'''
+'''
+@route('/search', method='POST')
+def search():
+    search_request = request.forms.search_request
+    results = list()
+    for i in all_stations:
+        if i['company'].lower() == search_request.lower():
+            results.append(i)
+            return template('views/search', search_request=search_request, results=results)
+
+    return template('views/search', search_request=search_request, results=results)
+'''
+
 
 @route('/about')
 def about():
@@ -82,7 +97,6 @@ def stodvar():
 
 @route('/stod/<n>')
 def stod(n):
-    print("KOMINN")
     doesExist = False
     stod = list()
     for i in data['results']:
@@ -126,5 +140,5 @@ def error404(error):
     return template('views/error404')
 
 
-run(host="0.0.0.0", port=os.environ.get('PORT'))
-#run(debug=True, reloader=True)
+#run(host="0.0.0.0", port=os.environ.get('PORT'))
+run(debug=True, reloader=True)

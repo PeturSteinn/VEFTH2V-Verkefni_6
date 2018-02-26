@@ -26,8 +26,21 @@ body {
   align-items: center;
 }
 
-.nav-bar div {
+.nav-bar div:nth-child(1) {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.nav-bar div:nth-child(2) {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar div:nth-child(3) {
+  text-align: right;
+  padding-right: 1em;
 }
 
 /*Menu Bar*/
@@ -57,7 +70,7 @@ input:checked~.menu-slide-in {
   position: absolute;
   background-color: #565554;
   top: 3.06em;
-  left: -13em;
+  left: -15em;
   width: 270px;
   border-right: 4px solid #ED1C24;
   border-bottom: 4px solid #bebbbb;
