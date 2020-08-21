@@ -28,8 +28,10 @@
       <span>Leita&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <div class="box">
         <div class="container-4">
-          <input type="search" id="search" placeholder="Olís, N1, Orkan..." />
+          <form class="" action="/search">
+          <input type="search" name="q" id="search" placeholder="Olís, N1, Orkan..." />
           <button class="icon"><i class="fa fa-search"></i></button>
+        </form>
         </div>
       </div>
     </div>

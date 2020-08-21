@@ -10,10 +10,12 @@ def server_static(filename):
 
 response = requests.get("http://apis.is/petrol")
 
+
 data = response.json()
 all_stations = list()
 odyrt_diesel = dict()
 odyrt_bensin = dict()
+print(data)
 
 for i in data['results']:
     i['bensin95'] = str(i['bensin95'])
@@ -51,7 +53,7 @@ for j, i in enumerate(data['results']):
     if i['diesel'] < odyrt_diesel['diesel']:
         odyrt_diesel = i
 
-lastPriceCheck = data['timestampPriceCheck']
+lastPriceCheck = data['timestampPriceChanges']
 lastPriceCheck = lastPriceCheck.split(".")
 lastPriceCheck.pop()
 tmp = lastPriceCheck[0]
@@ -70,19 +72,18 @@ def index():
     return template('views/index', all_stations=all_stations, odyrt_bensin=odyrt_bensin,
                     odyrt_diesel=odyrt_diesel, lastPriceCheck=lastPriceCheck)
 
-'''LEITARVÉL WIP'''
-'''
-@route('/search', method='POST')
+
+@route('/search')
 def search():
-    search_request = request.forms.search_request
     results = list()
+    search_request = request.query.q
     for i in all_stations:
         if i['company'].lower() == search_request.lower():
             results.append(i)
-            return template('views/search', search_request=search_request, results=results)
+    print(search_request)
 
     return template('views/search', search_request=search_request, results=results)
-'''
+
 
 
 @route('/about')
@@ -141,4 +142,4 @@ def error404(error):
 
 
 run(host="0.0.0.0", port=os.environ.get('PORT'))
-#run(debug=True, reloader=True)
+# run(debug=True, reloader=True)

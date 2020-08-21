@@ -311,7 +311,7 @@ input:checked~.menu-slide-in {
   line-height: 1.3em;
 }
 
-.stodvar img {
+.stodvar-block img {
   width: 100px;
   height: auto;
 }
@@ -441,6 +441,17 @@ input:checked~.menu-slide-in {
 .footer-content .signature p {
   padding: 0;
   margin: 0;
+}
+
+.fill {
+  width: 100%;
+}
+
+.no-results {}
+
+.search-result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 @media screen and (min-width: 37.5em) {

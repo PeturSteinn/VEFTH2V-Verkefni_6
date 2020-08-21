@@ -28,8 +28,10 @@
       <span>Leita&nbsp;&nbsp;|&nbsp;&nbsp;</span>
       <div class="box">
         <div class="container-4">
-          <input type="search" id="search" placeholder="Olís, N1, Orkan..." />
+          <form class="" action="/search">
+          <input type="search" name="q" id="search" placeholder="Olís, N1, Orkan..." />
           <button class="icon"><i class="fa fa-search"></i></button>
+        </form>
         </div>
       </div>
     </div>
@@ -37,14 +39,13 @@
       <a href="/about">About</a>
     </div>
   </div>
-  <section class="wrapper">
+  <section class="wrapper fill">
     <div class="intro">
       <p>Leita</p>
     </div>
     <section class="search-result">
-      <h3>Leitarorð: {{search_request}}</h3>
       % if len(results) != 0:
-      <div class="stodvar-block results-block">
+      <div class="stodvar-block">
         <div class="logo">
           <img src="/static/img/{{results[0]['key'][:2]}}.svg">
         </div>
@@ -53,7 +54,9 @@
         </a>
       </div>
       % else:
-      <div class="">Engar niðurstöður...</div>
+      <div class="no-results">
+        <h3>Leitarorð: {{search_request}}</h3>
+        Engar niðurstöður...</div>
       % end
     </section>
   </section>
