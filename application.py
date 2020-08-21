@@ -53,7 +53,7 @@ for j, i in enumerate(data['results']):
     if i['diesel'] < odyrt_diesel['diesel']:
         odyrt_diesel = i
 
-lastPriceCheck = data['timestampPriceChanges']
+lastPriceCheck = data['timestampApis']
 lastPriceCheck = lastPriceCheck.split(".")
 lastPriceCheck.pop()
 tmp = lastPriceCheck[0]
